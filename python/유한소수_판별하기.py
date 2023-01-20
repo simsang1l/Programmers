@@ -53,7 +53,7 @@ def solution(a, b):
         b = int(b / gcd_val)
       
     
-    b의 약수가 소수
+    # b의 약수가 소수
     for i in range(b, 1, -1):
         if b % i == 0 and primenumber(i) == 1:
             divide_val.append(i)
