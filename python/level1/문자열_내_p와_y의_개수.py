@@ -10,9 +10,7 @@ def solution(s):
             y += 1
             
 
-    if p == 0 and y == 0:
-        answer = True
-    elif p == y :
+    if p == y :
         answer = True
     else : 
         answer = False
@@ -22,3 +20,5 @@ def solution(s):
 
 
 ## 다른사람풀이
+def solution(s):
+    return s.lower().count('p') == s.lower().count('y')
