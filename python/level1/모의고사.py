@@ -19,7 +19,6 @@ def solution(answers):
             if 3 not in score.keys():
                 score[3] = 1
             score[3] += 1
-    # dictionary에서 각각 reverse로 할지 안할지 선택은 못하나...?
     sorted_score = sorted(score.items(), key = lambda value: (value[1], value[0]))
     
     for key, value in sorted_score:
