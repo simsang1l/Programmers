@@ -6,4 +6,5 @@
 ---
 ## STATUS
 - [x] 코딩테스트 입문
-- [ ] level1
+- [x] level1
+- [ ] level2
