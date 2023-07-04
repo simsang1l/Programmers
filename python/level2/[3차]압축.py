@@ -1,3 +1,4 @@
+# 따로 for문으로 접근하기보단 index로 직접접근도 할 수 있다
 def solution(msg):
     answer = []
     alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -16,5 +17,3 @@ def solution(msg):
         
     
     return answer
-
-print(solution('TOBEORNOTTOBEORTOBEORNOT'))
