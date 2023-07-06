@@ -21,7 +21,7 @@ def solution(clothes):
     return answer
 
 # 다른 사람 풀이
-# collections의 Counter, reduce를 이용한 방법
+# collections의 Counter, functools의 reduce를 이용한 방법
 # 의상이 겹칠 수 없는 점을 이용한 방법같다
 # 하지만 dictionary가 더 빠르다!
 def solution(clothes):
