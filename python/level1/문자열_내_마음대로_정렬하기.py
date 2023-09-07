@@ -16,7 +16,7 @@ def solution(strings, n):
     return answer
 
 
-# 다른사람풀이
+# 다른 사람 풀이 
 ## 동일한 방법에 더 간단한 방법이 있었다
 ### lambda랑 친해지기 .....
 def solution(strings, n):

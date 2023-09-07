@@ -9,7 +9,7 @@ def solution(phone_number):
             
     return answer
 
-## 다른사람 풀이
+## 다른 사람 풀이 
 # 속도는 훨씬 빠르다..
 def solution(phone_number):
     answer = ''

@@ -24,7 +24,7 @@ def solution(people, limit):
     return answer
 
 
-# 다른사람 풀이
+# 다른 사람 풀이 
 def solution(people, limit) :
     answer = 0
     people.sort()

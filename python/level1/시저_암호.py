@@ -17,7 +17,7 @@ def solution(s, n):
             
     return answer
 
-## 다른사람 풀이
+## 다른 사람 풀이 
 ### 리스트로 만들고 값을 변경한다면 공백을 신경쓸필요 없을듯..
 def solution(s, n):
     s = list(s)

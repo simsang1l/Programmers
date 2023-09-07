@@ -13,7 +13,7 @@ def solution(arr):
     return answer
 
 
-# 다른사람 풀이
+# 다른 사람 풀이 
 def solution(arr):
     answer = []
     for item in arr:

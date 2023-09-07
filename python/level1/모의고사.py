@@ -27,7 +27,7 @@ def solution(answers):
     return answer
 
 
-##  다른사람 풀이
+##  다른 사람 풀이 
 def solution(answers):
     answer = []
     math_1 = [1, 2, 3, 4, 5]

@@ -7,7 +7,7 @@ def solution(a, b):
     
     return answer
 
-# 다른사람 풀이
+# 다른 사람 풀이 
 ## lambda, comprehension 사용
 solution = lambda x, y: sum(a*b for a, b in zip(x, y))
 

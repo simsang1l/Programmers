@@ -15,7 +15,7 @@ def solution(land):
     
     return answer
 
-# 다른사람 풀이
+# 다른 사람 풀이 
 def solution(land):
     
     for i in range(1, len(land)):

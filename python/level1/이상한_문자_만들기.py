@@ -18,7 +18,7 @@ def solution(s):
             
     return answer
 
-# 다른사람 풀이
+# 다른 사람 풀이 
 ## list 이용해서 푸는 사람이 많은 것 같다..
 def solution(s):
     answer = []

@@ -12,7 +12,7 @@ def solution(left, right):
             
     return answer
 
-# 다른사람 풀이
+# 다른 사람 풀이 
 ## 제곱수의 약수는 홀수개임을 이용
 def solution(left, right):
     answer = 0

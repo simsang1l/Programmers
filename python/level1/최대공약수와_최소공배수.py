@@ -9,7 +9,7 @@ def solution(n, m):
     
     return answer
 
-## 다른사람 풀이
+## 다른 사람 풀이 
 
 # for문 이용하기
 def solution(n, m):
