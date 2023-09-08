@@ -14,7 +14,7 @@ def solution(participant, completion):
             
     return answer
 
-## 다른사람 풀이
+## 다른 사람 풀이 
 ### hash는 같은 문자에 대해 같은 값을 가지게 됨
 ### 남은 hash값을 알면 그 문자에 대해 알 수 있음을 이용
 

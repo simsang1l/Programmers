@@ -22,7 +22,7 @@ def solution(board, moves):
             
     return answer
 
-## 다른사람 풀이
+## 다른 사람 풀이 
 def solution(board, moves):
     # 0이 아닌 값만 추출하, 가장 위에있는 인형을 보여주는 형태
     cols = list(map(lambda x: list(filter(lambda y: y > 0, x)), zip(*board)))

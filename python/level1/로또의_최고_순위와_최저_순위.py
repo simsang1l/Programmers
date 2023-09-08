@@ -23,7 +23,7 @@ def solution(lottos, win_nums):
     answer = [grade(zero_cnt + consensus), grade(consensus)]
     return answer
 
-# 다른사람 풀이
+# 다른 사람 풀이 
 ## 두 점수 리스트에 대한 교집합을 이용한 풀이!
 def solution(lottos, win_nums):
     rank = {

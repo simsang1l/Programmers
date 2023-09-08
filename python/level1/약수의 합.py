@@ -20,7 +20,7 @@ def solution(n):
     
     return answer
 
-# 다른사람 풀이
+# 다른 사람 풀이 
 ## num // 2 하여 2로 나눈 값보다 큰 값중 약수는 num 그 자체밖에 없음 이용
 ## 시간 절약
 def solution(n):

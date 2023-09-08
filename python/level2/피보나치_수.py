@@ -14,7 +14,7 @@ def solution(n):
         
     return answer
 
-# 다른사람 풀이
+# 다른 사람 풀이 
 def solution(n):
     f_list = [0,1]
     for i in range(2,n+1):

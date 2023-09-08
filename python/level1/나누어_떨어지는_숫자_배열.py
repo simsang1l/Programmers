@@ -12,7 +12,7 @@ def solution(arr, divisor):
         
     return answer
 
-# 다른사람 풀이
+# 다른 사람 풀이 
 ## 리스트 컴프리헨션을 이용한 방법 로직은 동일
 def solution(arr, divisor):
     answer = []

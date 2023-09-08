@@ -8,7 +8,7 @@ def solution(absolutes, signs):
     
     return answer
 
-# 다른사람 풀이
+# 다른 사람 풀이 
 ## comprehension 이용
 
 def solution(absolutes, signs):

@@ -19,6 +19,6 @@ def solution(s):
     return answer
 
 
-## 다른사람풀이
+## 다른 사람 풀이 
 def solution(s):
     return s.lower().count('p') == s.lower().count('y')

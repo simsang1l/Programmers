@@ -35,7 +35,7 @@ def solution(dartResult):
     
     return answer
 
-## 다른사람 풀이
+## 다른 사람 풀이 
 def solution(dartResult):
     answer = []
     dartResult = dartResult.replace("10", "A") # 계산하기 편하게 하기 위해 10을 A로 변환

@@ -10,7 +10,7 @@ def solution(s):
         
     return answer
 
-## 다른사람 풀이
+## 다른 사람 풀이 
 ### isdigit이란 함수도 있네요
 def solution(s):
     answer = s.isdigit() and len(s) in (4, 6)

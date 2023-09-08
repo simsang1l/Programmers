@@ -12,7 +12,7 @@ def solution(d, budget):
     
     return answer
 
-## 다른사람 풀이
+## 다른 사람 풀이 
 def solution(d, budget):
     answer = 0
     d.sort()

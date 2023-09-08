@@ -12,7 +12,7 @@ def solution(arr):
         
     return answer
 
-## 다른사람 풀이
+## 다른 사람 풀이 
 # 비슷하지만 다른코드, index 접근하는 방법
 def solution(arr):
     if not len(arr) > 1 :

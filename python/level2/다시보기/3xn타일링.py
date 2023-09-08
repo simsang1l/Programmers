@@ -17,7 +17,7 @@ def solution(n):
 
     return answer[index]
 
-# 다른사람 풀이
+# 다른 사람 풀이 
 def solution(n):
     if n % 2:
         return 0
