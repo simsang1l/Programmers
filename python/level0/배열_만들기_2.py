@@ -27,5 +27,3 @@ def solution(l, r):
     if answer == []:
         answer.append(-1)
     return answer
-
-    
