@@ -1,11 +1,14 @@
 def solution(arr1, arr2):
-    arr1_l, arr1_r = len(arr1), len(arr1[0])
-    arr2_l, arr2_r = len(arr2), len(arr2[0])
-    answer = [[0]* arr2_r for _ in range(arr1_l)]
+    answer = []
     
-    for k in range(arr1_l) :
-        for i in range(arr2_r):
-            for j in range(arr1_r):
-                answer[k][i] += (arr1[k][j] * arr2[j][i])
-        
+    for i in range(len(arr1)):
+        tmp = []
+        for j in range(len(arr2[0])):
+            result = 0
+            for s in range(len(arr2)):
+                result += (arr1[i][s] * arr2[s][j])
+            
+            tmp.append(result)
+        answer.append(tmp)
+    
     return answer
