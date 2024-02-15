@@ -28,3 +28,51 @@ def solution(progresses, speeds):
     answer.append(count)
     
     return answer
+
+# 다른사람 풀이
+"""
+나와 동일한 생각이지만 더 쉽게 풀어낸 코드
+1. math.ceil을 통해 올림 적용
+2. index를 이용한 개수 값 구하기
+3. 가장 마지막 배포를 고려한 for문 밖 append구문
+"""
+import math
+
+
+def solution(progresses, speeds):
+    progresses = [math.ceil((100 - a) / b) for a, b in zip(progresses, speeds)]
+    answer = []
+    front = 0
+
+    for idx in range(len(progresses)):
+        if progresses[idx] > progresses[front]:  
+            answer.append(idx - front)
+            front = idx 
+    answer.append(len(progresses) - front)  
+
+    return answer
+
+
+"""
+생각은 했지만 구현은 못한 코드
+시간을 이용하여 배포가 필요한 작업들에 모두 pop적용!
+"""
+def solution(progresses, speeds):
+    
+    answer = []
+    time = 0
+    count = 0
+    
+    while len(progresses)> 0:
+        if (progresses[0] + time*speeds[0]) >= 100: 
+            progresses.pop(0)
+            speeds.pop(0)
+            count += 1
+            
+        else:
+            if count > 0:
+                answer.append(count)
+                count = 0
+            time += 1
+    answer.append(count)
+    return answer
