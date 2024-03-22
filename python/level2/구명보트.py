@@ -25,6 +25,8 @@ def solution(people, limit):
 
 
 # 다른 사람 풀이 
+# 투 포인터 이용(시작과 끝의 index)
+# 최대 2명씩 밖에 탈 수 없으므로 한쌍이 limit보다 작다면 필요한 구명보트 수는 1씩 줄어듦
 def solution(people, limit) :
     answer = 0
     people.sort()
