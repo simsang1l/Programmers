@@ -1,0 +1,28 @@
+WITH MEM AS (
+    SELECT
+        MEMBER_ID ,
+        COUNT(*) AS CNT
+    FROM
+        REST_REVIEW
+    GROUP BY
+        MEMBER_ID
+    ORDER BY
+        CNT DESC
+    LIMIT 1
+)
+SELECT
+    A.MEMBER_NAME ,
+    R.REVIEW_TEXT ,
+    DATE_FORMAT(R.REVIEW_DATE, '%Y-%m-%d') AS REVIEW_DATE
+FROM 
+    REST_REVIEW R
+    INNER JOIN
+        MEM M
+        ON R.MEMBER_ID = M.MEMBER_ID
+    INNER JOIN
+        MEMBER_PROFILE A
+        ON A.MEMBER_ID = M.MEMBER_ID
+ORDER BY
+    REVIEW_DATE ,
+    REVIEW_TEXT
+;
