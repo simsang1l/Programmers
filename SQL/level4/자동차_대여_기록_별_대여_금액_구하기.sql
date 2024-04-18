@@ -1,0 +1,84 @@
+-- 풀긴했지만 너무 복잡하게 한 것 같다.
+WITH CAR_RENTAL AS (
+    SELECT
+        HISTORY_ID,
+        DAILY_FEE,
+        DURATION,
+        CAR_TYPE,
+        CASE
+            WHEN 7 <= DURATION AND DURATION < 30 THEN 7
+            WHEN 30 <= DURATION AND DURATION < 90 THEN 30
+            WHEN 90 <= DURATION AND DURATION THEN 90
+            ELSE 1
+        END AS DURATION_TYPE
+    FROM
+        (
+        SELECT
+            HISTORY_ID,
+            DAILY_FEE,
+            CAR_TYPE,
+            DATEDIFF(END_DATE, START_DATE) + 1 AS DURATION -- 사용 기간
+        FROM
+            CAR_RENTAL_COMPANY_RENTAL_HISTORY A
+            INNER JOIN
+                CAR_RENTAL_COMPANY_CAR B
+                ON A.CAR_ID = B.CAR_ID
+        WHERE
+            CAR_TYPE = '트럭'
+    ) A
+)
+, DISCOUNT AS (
+    SELECT
+        CAR_TYPE ,
+        CASE
+            WHEN DURATION_TYPE = '7일 이상' THEN 7
+            WHEN DURATION_TYPE = '30일 이상' THEN 30
+            WHEN DURATION_TYPE = '90일 이상' THEN 90
+            ELSE 1
+        END AS DURATION_TYPE,
+        DISCOUNT_RATE
+    FROM
+        CAR_RENTAL_COMPANY_DISCOUNT_PLAN
+)
+SELECT
+    HISTORY_ID,
+    CASE 
+        WHEN DISCOUNT_RATE IS NOT NULL THEN (DAILY_FEE * (100-DISCOUNT_RATE) DIV 100) * DURATION
+        ELSE DAILY_FEE * DURATION
+    END
+    AS FEE
+FROM
+    CAR_RENTAL A
+    LEFT JOIN
+        DISCOUNT B
+        ON A.CAR_TYPE = B.CAR_TYPE
+        AND A.DURATION_TYPE = B.DURATION_TYPE
+ORDER BY
+    FEE DESC,
+    HISTORY_ID DESC
+;
+
+-- 다른 사람 풀이
+-- coalesce를 이용하기!
+-- 목적 - 자동차 종류 = '트럭'인 자동차 대여 기록 -> 대여 기록 ID, 대여 금액 출력
+-- 일별 요금 * 기간 * (1-할인율)
+
+
+
+SELECT A.HISTORY_ID, ROUND(A.DAILY_FEE * (1-COALESCE(B.DISCOUNT_RATE/100,0)) * A.DURATION, 0) AS FEE
+FROM(
+    # '트럭'의 대여 기록 정보
+    SELECT A.HISTORY_ID, A.CAR_ID,A.START_DATE, A.END_DATE, DATEDIFF(A.END_DATE, A.START_DATE)+1 AS DURATION,
+       B.CAR_TYPE, B.DAILY_FEE,
+       CASE WHEN DATEDIFF(A.END_DATE, A.START_DATE)+1 >= 90 THEN '90일 이상'
+            WHEN DATEDIFF(A.END_DATE, A.START_DATE)+1 >= 30 THEN '30일 이상'
+            WHEN DATEDIFF(A.END_DATE, A.START_DATE)+1 >= 7 THEN '7일 이상'
+            ELSE '할인 없음'
+            END AS 'DURATION_TYPE'
+    FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY A
+    LEFT JOIN CAR_RENTAL_COMPANY_CAR B ON A.CAR_ID = B.CAR_ID
+    WHERE B.CAR_TYPE = '트럭'
+    ) AS A
+    LEFT JOIN CAR_RENTAL_COMPANY_DISCOUNT_PLAN B
+           ON (A.DURATION_TYPE = B.DURATION_TYPE) AND (A.CAR_TYPE = B.CAR_TYPE)
+ORDER BY FEE DESC, HISTORY_ID DESC
