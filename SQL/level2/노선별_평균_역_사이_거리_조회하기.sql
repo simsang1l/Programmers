@@ -1,0 +1,13 @@
+-- TOTAL_DIATANCE로 정렬을 하게되면 문자열 정렬이기 때문에 결과가 다를 수 있음.
+-- 따라서 값에 따른 정렬이 필요함!
+SELECT
+    ROUTE,
+    CONCAT(ROUND(SUM(D_BETWEEN_DIST), 1), 'km') AS TOTAL_DISTANCE,
+    CONCAT(ROUND(AVG(D_BETWEEN_DIST), 2), 'km') AS AVERAGE_DISTANCE
+FROM
+    SUBWAY_DISTANCE
+GROUP BY
+    ROUTE
+ORDER BY
+    SUM(D_BETWEEN_DIST) DESC
+;
