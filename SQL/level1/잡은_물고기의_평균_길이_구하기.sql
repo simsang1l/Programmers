@@ -1,0 +1,18 @@
+SELECT
+    ROUND(AVG(LENGTH), 2) AS AVERAGE_LENGTH
+FROM    
+    (SELECT
+        CASE
+            WHEN LENGTH IS NULL THEN 10
+            ELSE LENGTH
+        END AS LENGTH
+    FROM
+        FISH_INFO
+     ) A
+;
+
+-- 다른 사람 풀이
+-- IFNULL(A, B): A가 NULL이면 B값 반환
+SELECT  ROUND(AVG(IFNULL(LENGTH, 10)), 2) AS AVERAGE_LENGTH
+  FROM  FISH_INFO
+;
