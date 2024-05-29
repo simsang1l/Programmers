@@ -1,0 +1,15 @@
+SELECT DISTINCT
+    ID,
+    EMAIL,
+    FIRST_NAME,
+    LAST_NAME
+FROM
+    SKILLCODES A
+    INNER JOIN
+        DEVELOPERS B
+        ON A.CODE & SKILL_CODE = A.CODE
+WHERE
+    CATEGORY = 'Front End'
+ORDER BY
+    ID
+;
