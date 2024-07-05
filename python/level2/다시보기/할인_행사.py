@@ -21,3 +21,33 @@ def solution(want, number, discount):
             answer += 1
             
     return answer
+
+# ChatGPT-4o의 수정
+"""
+1
+"""
+from collections import Counter
+
+def solution(want, number, discount):
+    answer = 0
+    want_count = Counter({w: n for w, n in zip(want, number)})
+    current_count = Counter(discount[:10])
+
+    # 초기 10일간의 할인 제품 상태 검사
+    if all(current_count[w] >= want_count[w] for w in want_count):
+        answer += 1
+
+    # 슬라이딩 윈도우로 한 칸씩 이동하며 검사
+    for i in range(10, len(discount)):
+        # 윈도우의 오른쪽 끝 추가
+        current_count[discount[i]] += 1
+        # 윈도우의 왼쪽 끝 제거
+        current_count[discount[i - 10]] -= 1
+        if current_count[discount[i - 10]] == 0:
+            del current_count[discount[i - 10]]
+
+        # 현재 상태 검사
+        if all(current_count[w] >= want_count[w] for w in want_count):
+            answer += 1
+
+    return answer
